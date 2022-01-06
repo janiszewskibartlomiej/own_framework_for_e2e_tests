@@ -20,7 +20,6 @@
 * pandas                >> data processing
 * webdriver-manager     >> browsers driver download  https://pypi.org/project/webdriver-manager/
 * sty                   >> change color in command line
-* behave                >> BDD
 * pytest-xdist          >> tests in parallel
 * easyimap              >> simple imap wrapper
 * jsonref               >> convert '$ref' in json to variable

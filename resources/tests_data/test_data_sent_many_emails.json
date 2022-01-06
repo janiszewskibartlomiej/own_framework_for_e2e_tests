@@ -1,0 +1,31 @@
+{
+  "load_test_sent_many_emails_#1": {
+    "data": {
+      "subject": "#1 pilny problem",
+      "body_text": "Witam,\n\nMam problem nie mogę zalogować się do mojego konta.\nProszę o pilną odpowiedź.\n\nZ poważaniem,\nKatarzyna Kowalska",
+      "attachment_names": [],
+      "expected_status": "ALL : DONE"
+    }
+  },
+  "load_test_sent_many_emails__#2": {
+    "data": {
+      "subject": "#1 pilny problem",
+      "body_text": "Witam,\n\nMam problem nie mogę zalogować się do mojego konta.\nProszę o pilną odpowiedź.\n\nZ poważaniem,\nKatarzyna Kowalska",
+      "attachment_names": [
+        "dezynfekcja_rak.pdf",
+        "test_intelligenza_sociale.jpg"
+      ],
+      "expected_status": "ALL : DONE"
+    }
+  },
+  "load_test_sent_many_emails__#3": {
+    "data": {
+      "subject": "#1 pilny problem",
+      "body_text": "Witam,\n\nMam problem nie mogę zalogować się do mojego konta.\nProszę o pilną odpowiedź.\n\nZ poważaniem,\nKatarzyna Kowalska",
+      "attachment_names": [
+        "dezynfekcja_rak.pdf"
+      ],
+      "expected_status": "ALL : DONE"
+    }
+  }
+}

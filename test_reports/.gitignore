@@ -1,0 +1,8 @@
+# Ignore everything in this directory
+*
+# Except this file
+!.gitignore
+!/HTML_reports
+!/allure_json
+!/HTML_reports/allure-report
+!.gitkeep

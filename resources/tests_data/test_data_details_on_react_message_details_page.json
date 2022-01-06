@@ -1,0 +1,14 @@
+{
+  "verify_details_on_react_message_details_page_login_by_submit_#1": {
+    "data": {
+      "enter_key": false,
+      "expected_h1_header": "Message details"
+    }
+  },
+  "verify_details_on_react_message_details_page_login_by_enter_key_#2": {
+    "data": {
+      "enter_key": true,
+      "expected_h1_header": "Message details"
+    }
+  }
+}

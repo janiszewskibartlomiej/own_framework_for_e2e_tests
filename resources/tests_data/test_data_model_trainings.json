@@ -1,0 +1,26 @@
+{
+  "training_version_categorization_model_#1": {
+    "data": {
+      "trainings_version": "categorisation_model",
+      "expected_alert_message": "Success.",
+      "expected_icon_color": "rgb(16, 179, 107)",
+      "expected_status": "FINISHED"
+    }
+  },
+  "training_version_topic_classification_model_#2": {
+    "data": {
+      "trainings_version": "topic_classification_model",
+      "expected_alert_message": "Success.",
+      "expected_icon_color": "rgb(16, 179, 107)",
+      "expected_status": "FINISHED"
+    }
+  },
+  "training_version_sentiment_classification_model_#3": {
+    "data": {
+      "trainings_version": "sentiment_classification_model",
+      "expected_alert_message": "Success.",
+      "expected_icon_color": "rgb(16, 179, 107)",
+      "expected_status": "FINISHED"
+    }
+  }
+}

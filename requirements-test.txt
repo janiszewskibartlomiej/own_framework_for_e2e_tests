@@ -1,0 +1,12 @@
+pytest
+selenium
+pytest-html
+allure-pytest
+python-dotenv
+pandas
+webdriver-manager
+sty
+behave
+pytest-xdist
+easyimap
+jsonref

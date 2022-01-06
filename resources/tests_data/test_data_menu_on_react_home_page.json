@@ -1,0 +1,228 @@
+{
+  "verify_menu_on_react_homepage_page_login_by_submit_#1": {
+    "data": {
+      "enter_key": false,
+      "expected_h1_overview": "General Overview",
+      "expected_headers_content_in_dashboard": [
+        "Channel",
+        "Source",
+        "This Month",
+        "Total",
+        "Analyzed",
+        "Automated",
+        "Summary",
+        "Sentiment",
+        "Top Categories",
+        "Top Channels"
+      ],
+      "expected_h1_messages": "Messages",
+      "expected_headers_input_search": [
+        "Search",
+        "Channel",
+        "Source",
+        "Sentiment",
+        "Language",
+        "Category",
+        "Topic",
+        "Playtime",
+        "Status",
+        "Date"
+      ],
+      "expected_h1_trainings_data": "Trainings Data",
+      "expected_headers_input_search_trainings_data": [
+        "Start date",
+        "End date",
+        "Category prediction",
+        "Rule category",
+        "Topic prediction",
+        "Topic",
+        "Rule",
+        "Status",
+        "Is active"
+      ],
+      "expected_table_headers_trainings_data": [
+        "ID",
+        "Source",
+        "Rule category",
+        "Category prediction",
+        "Rule",
+        "Category precision",
+        "Topic",
+        "Topic prediction",
+        "Voted categories",
+        "Voted topics",
+        "Is active"
+      ],
+      "expected_h1_import_data": "Import Data",
+      "expected_table_headers_import_data": [
+        "ID",
+        "File",
+        "Created at",
+        "CSV File actions"
+      ],
+      "expected_h1_models": "Models",
+      "expected_table_headers_models": [
+        "Model Name",
+        "Run ID",
+        "Is active",
+        "Evaluation result"
+      ],
+      "expected_h1_categories": "Categories",
+      "expected_table_headers_categories": [
+        "ID",
+        "Name",
+        "Is active"
+      ],
+      "expected_h1_topics": "Topics",
+      "expected_table_headers_topics": [
+        "Topic ID",
+        "Name",
+        "Is active"
+      ],
+      "expected_h1_rules": "Rules",
+      "expected_table_headers_rules": [
+        "ID",
+        "Name",
+        "Is active",
+        "Create draft",
+        "Auto forward",
+        "Must have an attachment",
+        "Cannot have an attachment",
+        "Must have empty message body"
+      ],
+      "expected_h1_headers": "Headers",
+      "expected_table_headers_on_headers": [
+        "ID",
+        "Name",
+        "Is active"
+      ],
+      "expected_h1_footers": "Footers",
+      "expected_table_headers_footers": [
+        "ID",
+        "Name",
+        "Is active"
+      ],
+      "expected_h1_integrations": "Integrations",
+      "expected_table_headers_integrations": [
+        "ID",
+        "Is active",
+        "Type",
+        "Source name",
+        "Description"
+      ]
+    }
+  },
+  "verify_menu_on_react_homepage_page_login_by_enter_key_#2": {
+    "data": {
+      "enter_key": true,
+      "expected_h1_overview": "General Overview",
+      "expected_headers_content_in_dashboard": [
+        "Channel",
+        "Source",
+        "This Month",
+        "Total",
+        "Analyzed",
+        "Automated",
+        "Summary",
+        "Sentiment",
+        "Top Categories",
+        "Top Channels"
+      ],
+      "expected_h1_messages": "Messages",
+      "expected_headers_input_search": [
+        "Search",
+        "Channel",
+        "Source",
+        "Sentiment",
+        "Language",
+        "Category",
+        "Topic",
+        "Playtime",
+        "Status",
+        "Date"
+      ],
+      "expected_h1_trainings_data": "Trainings Data",
+      "expected_headers_input_search_trainings_data": [
+        "Start date",
+        "End date",
+        "Category prediction",
+        "Rule category",
+        "Topic prediction",
+        "Topic",
+        "Rule",
+        "Status",
+        "Is active"
+      ],
+      "expected_table_headers_trainings_data": [
+        "ID",
+        "Source",
+        "Rule category",
+        "Category prediction",
+        "Rule",
+        "Category precision",
+        "Topic",
+        "Topic prediction",
+        "Voted categories",
+        "Voted topics",
+        "Is active"
+      ],
+      "expected_h1_import_data": "Import Data",
+      "expected_table_headers_import_data": [
+        "ID",
+        "File",
+        "Created at",
+        "CSV File actions"
+      ],
+      "expected_h1_models": "Models",
+      "expected_table_headers_models": [
+        "Model Name",
+        "Run ID",
+        "Is active",
+        "Evaluation result"
+      ],
+      "expected_h1_categories": "Categories",
+      "expected_table_headers_categories": [
+        "ID",
+        "Name",
+        "Is active"
+      ],
+      "expected_h1_topics": "Topics",
+      "expected_table_headers_topics": [
+        "Topic ID",
+        "Name",
+        "Is active"
+      ],
+      "expected_h1_rules": "Rules",
+      "expected_table_headers_rules": [
+        "ID",
+        "Name",
+        "Is active",
+        "Create draft",
+        "Auto forward",
+        "Must have an attachment",
+        "Cannot have an attachment",
+        "Must have empty message body"
+      ],
+      "expected_h1_headers": "Headers",
+      "expected_table_headers_on_headers": [
+        "ID",
+        "Name",
+        "Is active"
+      ],
+      "expected_h1_footers": "Footers",
+      "expected_table_headers_footers": [
+        "ID",
+        "Name",
+        "Is active"
+      ],
+      "expected_h1_integrations": "Integrations",
+      "expected_table_headers_integrations": [
+        "ID",
+        "Is active",
+        "Type",
+        "Source name",
+        "Description"
+      ]
+    }
+  }
+}

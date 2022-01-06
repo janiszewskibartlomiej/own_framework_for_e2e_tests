@@ -1,0 +1,16 @@
+{
+  "successful_login_to_react_homepage_by_submit_button_#1": {
+    "data": {
+      "enter_key": false,
+      "expected_link_text": "Rules",
+      "expected_url": "data['expected_url'] = os.environ.get('REACT_BASE_URL')"
+    }
+  },
+  "successful_login_to_react_homepage_by_enter_key_#2": {
+    "data": {
+      "enter_key": true,
+      "expected_link_text": "Rules",
+      "expected_url": "data['expected_url'] = os.environ.get('REACT_BASE_URL')"
+    }
+  }
+}

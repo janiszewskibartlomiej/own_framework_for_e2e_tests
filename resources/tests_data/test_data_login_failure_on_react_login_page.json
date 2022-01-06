@@ -1,0 +1,82 @@
+{
+  "failed_login_to_react_homepage_correct_username_and_incorrect_password_by_submit_button_#1": {
+    "data": {
+      "enter_key": false,
+      "username": "data['username'] = os.environ.get('LOGIN_ADMIN_PANEL')",
+      "password": "data['password'] = (os.environ.get('PASSWORD_ADMIN_PANEL')).lower()",
+      "expected_alert_message": "The login detail is incorrect"
+    }
+  },
+  "failed_login_to_react_homepage_correct_username_and_incorrect_password_by_enter_key_#2": {
+    "data": {
+      "enter_key": true,
+      "username": "data['username'] = os.environ.get('LOGIN_ADMIN_PANEL')",
+      "password": "data['password'] = os.environ.get('PASSWORD_ADMIN_PANEL').lower()",
+      "expected_alert_message": "The login detail is incorrect"
+    }
+  },
+  "failed_login_to_react_homepage_incorrect_username_and_correct_password_by_submit_button_#3": {
+    "data": {
+      "enter_key": false,
+      "username": "data['username'] = os.environ.get('LOGIN_ADMIN_PANEL').upper()",
+      "password": "data['password'] = os.environ.get('PASSWORD_ADMIN_PANEL')",
+      "expected_alert_message": "The login detail is incorrect"
+    }
+  },
+  "failed_login_to_react_homepage_incorrect_username_and_correct_password_by_enter_key_#4": {
+    "data": {
+      "enter_key": true,
+      "username": "data['username'] = os.environ.get('LOGIN_ADMIN_PANEL').upper()",
+      "password": "data['password'] = os.environ.get('PASSWORD_ADMIN_PANEL')",
+      "expected_alert_message": "The login detail is incorrect"
+    }
+  },
+  "failed_login_to_react_homepage_correct_username_and_correct_password_with_space_key_by_submit_button_#5": {
+    "data": {
+      "enter_key": false,
+      "username": "data['username'] = ' ' + os.environ.get('LOGIN_ADMIN_PANEL') + ' '",
+      "password": "data['password'] = ' ' + os.environ.get('PASSWORD_ADMIN_PANEL') + ' '",
+      "expected_alert_message": "The login detail is incorrect"
+    }
+  },
+  "failed_login_to_react_homepage_correct_username_and_correct_password_with_space_key_by_enter_key_#6": {
+    "data": {
+      "enter_key": true,
+      "username": "data['username'] = ' ' + os.environ.get('LOGIN_ADMIN_PANEL') + ' '",
+      "password": "data['password'] = ' ' + os.environ.get('PASSWORD_ADMIN_PANEL') + ' '",
+      "expected_alert_message": "The login detail is incorrect"
+    }
+  },
+  "failed_login_to_react_homepage_email_and_password_are_white_space_by_submit_button_#7": {
+    "data": {
+      "enter_key": false,
+      "username": "data['username'] = '   '",
+      "password": "data['password'] = '   '",
+      "expected_alert_message": "The login detail is incorrect"
+    }
+  },
+  "failed_login_to_react_homepage_email_and_password_are_white_space_by_enter_key_#8": {
+    "data": {
+      "enter_key": true,
+      "username": "data['username'] = '   '",
+      "password": "data['password'] = '   '",
+      "expected_alert_message": "The login detail is incorrect"
+    }
+  },
+  "failed_login_to_react_homepage_reverse_data_input_by_submit_button_#9": {
+    "data": {
+      "enter_key": false,
+      "username": "data['username'] = os.environ.get('PASSWORD_ADMIN_PANEL')",
+      "password": "data['password'] = os.environ.get('LOGIN_ADMIN_PANEL')",
+      "expected_alert_message": "The login detail is incorrect"
+    }
+  },
+  "failed_login_to_react_homepage_reverse_data_input_by_enter_key_#10": {
+    "data": {
+      "enter_key": true,
+      "username": "data['username'] = os.environ.get('PASSWORD_ADMIN_PANEL')",
+      "password": "data['password'] = os.environ.get('LOGIN_ADMIN_PANEL')",
+      "expected_alert_message": "The login detail is incorrect"
+    }
+  }
+}

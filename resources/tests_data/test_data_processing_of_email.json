@@ -1,0 +1,82 @@
+{
+  "processing_of_email_message_#1": {
+    "data": {
+      "subject": "#1 pilny problem",
+      "body_text": "Witam,\n\nMam problem nie mogę zalogować się do mojego konta.\nProszę o pilną odpowiedź.\n\nZ poważaniem,\nKatarzyna Kowalska",
+      "attachment_names": [],
+      "expected_from_email": "tests@aibusters.com",
+      "expected_from_name": "Bonifacy",
+      "expected_body_text": {
+        "$ref": "#/processing_of_email_message_#1/data/body_text"
+      },
+      "expected_status": "ALL : DONE",
+      "expected_category_prediction": "Bankowość (ID: 2)",
+      "expected_rule": "Bankowosc_Awaria (ID: 2)",
+      "expected_topic_prediction": "Pochwała (ID: 4)",
+      "expected_language": "polish",
+      "expected_app_rating": "---",
+      "expected_app_version": "---",
+      "expected_is_reply": false,
+      "expected_has_attachment": false,
+      "expected_attachment_names": "",
+      "expected_sent_reply": "Dzień dobry,<br/><br/>Przepraszamy w dn. dzisiejszymy mamy <b>awarię</b>. Prosimy o cierpliwość.<br/><br/>Z poważaniem,<br>\n<b>BOK</b>",
+      "expected_predictions_rating": "---------",
+      "expected_is_clickable": true
+    }
+  },
+  "processing_of_email_message_#2": {
+    "data": {
+      "subject": "#1 pilny problem",
+      "body_text": "Witam,\n\nMam problem nie mogę zalogować się do mojego konta.\nProszę o pilną odpowiedź.\n\nZ poważaniem,\nKatarzyna Kowalska",
+      "attachment_names": [
+        "dezynfekcja_rak.pdf",
+        "test_intelligenza_sociale.jpg"
+      ],
+      "expected_from_email": "tests@aibusters.com",
+      "expected_from_name": "Bonifacy",
+      "expected_body_text": {
+        "$ref": "#/processing_of_email_message_#2/data/body_text"
+      },
+      "expected_status": "ALL : DONE",
+      "expected_category_prediction": "Bankowość (ID: 2)",
+      "expected_rule": "Bankowosc_Awaria (ID: 2)",
+      "expected_topic_prediction": "Pochwała (ID: 4)",
+      "expected_language": "polish",
+      "expected_app_rating": "---",
+      "expected_app_version": "---",
+      "expected_is_reply": false,
+      "expected_has_attachment": true,
+      "expected_attachment_names": "dezynfekcja_rak.pdf , test_intelligenza_sociale.jpg",
+      "expected_sent_reply": "Dzień dobry,<br/><br/>Przepraszamy w dn. dzisiejszymy mamy <b>awarię</b>. Prosimy o cierpliwość.<br/><br/>Z poważaniem,<br>\n<b>BOK</b>",
+      "expected_predictions_rating": "---------",
+      "expected_is_clickable": true
+    }
+  },
+  "processing_of_email_message_#3": {
+    "data": {
+      "subject": "#1 pilny problem",
+      "body_text": "Witam,\n\nMam problem nie mogę zalogować się do mojego konta.\nProszę o pilną odpowiedź.\n\nZ poważaniem,\nKatarzyna Kowalska",
+      "attachment_names": [
+        "dezynfekcja_rak.pdf"
+      ],
+      "expected_from_email": "tests@aibusters.com",
+      "expected_from_name": "Bonifacy",
+      "expected_body_text": {
+        "$ref": "#/processing_of_email_message_#3/data/body_text"
+      },
+      "expected_status": "ALL : DONE",
+      "expected_category_prediction": "Bankowość (ID: 2)",
+      "expected_rule": "Bankowosc_Awaria (ID: 2)",
+      "expected_topic_prediction": "Pochwała (ID: 4)",
+      "expected_language": "polish",
+      "expected_app_rating": "---",
+      "expected_app_version": "---",
+      "expected_is_reply": false,
+      "expected_has_attachment": true,
+      "expected_attachment_names": "dezynfekcja_rak.pdf",
+      "expected_sent_reply": "Dzień dobry,<br/><br/>Przepraszamy w dn. dzisiejszymy mamy <b>awarię</b>. Prosimy o cierpliwość.<br/><br/>Z poważaniem,<br>\n<b>BOK</b>",
+      "expected_predictions_rating": "---------",
+      "expected_is_clickable": true
+    }
+  }
+}

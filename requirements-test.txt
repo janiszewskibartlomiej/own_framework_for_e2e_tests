@@ -6,7 +6,6 @@ python-dotenv
 pandas
 webdriver-manager
 sty
-behave
 pytest-xdist
 easyimap
 jsonref

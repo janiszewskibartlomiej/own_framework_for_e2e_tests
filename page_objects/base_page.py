@@ -16,7 +16,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 import utils.constants as constant
 from utils.automation_functions import (
     get_path_from_directory_name,
-    change_win_sep,
+    change_win_sep, wait
 )
 
 load_dotenv()
@@ -42,7 +42,7 @@ class BasePage:
         )
         web_element.click()
         WebDriverWait(self.driver, self.timeout).until(EC.staleness_of(old_page))
-        time.sleep(1)
+        wait()
 
     def click_on(self, by_locator: tuple):
 
@@ -52,7 +52,7 @@ class BasePage:
         web_element.click()
         while not self.page_is_loading():
             continue
-        time.sleep(1)
+        wait()
         return web_element
 
     def get_src_attribute(self, by_locator: tuple) -> str:
@@ -123,7 +123,7 @@ class BasePage:
         web_element = self.get_element(by_locator=by_locators)
 
         while text_to_verifying != web_element.text:
-            time.sleep(1)
+            wait()
             self.driver.refresh()
             web_element = self.get_element(by_locator=by_locators)
             end_time = time.time().__int__()
@@ -141,7 +141,7 @@ class BasePage:
     ):
         start_time = time.time().__int__()
         while text_to_verifying not in self.driver.page_source:
-            time.sleep(1)
+            wait()
             self.driver.refresh()
             end_time = time.time().__int__()
             time_to_refresh = end_time - start_time
@@ -244,6 +244,7 @@ class BasePage:
 
         self.driver.close()
         self.driver.quit()
+        del driver
 
     def visit(self, location: str):
 
@@ -324,7 +325,7 @@ class BasePage:
 
     def get_console_logs(self, logs: dict) -> dict:
         if self.driver.name == "chrome":
-            time.sleep(0.5)
+            wait()
             console_logs = self.driver.get_log("browser")
             messages = {
                 el["timestamp"]: {"message": el["message"], "url": self.driver.current_url, }

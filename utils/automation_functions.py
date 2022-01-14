@@ -192,9 +192,9 @@ def get_screenshot(name: str, driver: webdriver, dictionary_path: str) -> None:
     t = time.localtime()
     current_time = time.strftime("%H-%M-%S", t)
     path = f"{dictionary_path}{os.sep}screenshot_{name}_{current_time}.png"
-    time.sleep(1)
+    wait()
     driver.get_screenshot_as_file(path)
-    time.sleep(1)
+    twait()
     driver.set_window_size(original_size["width"], original_size["height"])
 
 

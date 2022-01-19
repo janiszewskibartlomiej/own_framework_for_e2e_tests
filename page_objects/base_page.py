@@ -28,31 +28,27 @@ class BasePage:
     """
 
     def __init__(self, driver):
-
         self.base_url = os.environ.get("BASE_URL")
         self.driver = driver
         self.timeout = 20
         self.short_timeout = 1
 
     def click_on_and_wait_for_a_new_page(self, by_locator: tuple):
-
         old_page = self.driver.find_element_by_tag_name("html")
         web_element = WebDriverWait(self.driver, self.timeout).until(
             EC.element_to_be_clickable(by_locator)
         )
         web_element.click()
         WebDriverWait(self.driver, self.timeout).until(EC.staleness_of(old_page))
-        wait()
 
     def click_on(self, by_locator: tuple):
-
         web_element = WebDriverWait(self.driver, self.timeout).until(
             EC.element_to_be_clickable(by_locator)
         )
         web_element.click()
         while not self.page_is_loading():
+            wait()
             continue
-        wait()
         return web_element
 
     def get_src_attribute(self, by_locator: tuple) -> str:
@@ -66,21 +62,18 @@ class BasePage:
             return False
 
     def assert_element_text_in_page_source(self, element_text: str):
-
         while not self.page_is_loading():
             continue
 
         assert element_text in self.driver.page_source, f"{element_text} not in page source"
 
     def assert_path_in_current_url(self, path: str):
-
         assert_path_in_url = WebDriverWait(self.driver, self.timeout).until(
             EC.url_contains(url=path)
         )
         assert assert_path_in_url is True
 
     def enter_text(self, by_locator: tuple, text: str):
-
         element = WebDriverWait(self.driver, self.timeout).until(
             EC.visibility_of_element_located(by_locator)
         )
@@ -88,7 +81,6 @@ class BasePage:
         element.send_keys(text)
 
     def enter_text_and_click_enter(self, by_locators: tuple, text: str):
-
         element = WebDriverWait(self.driver, self.timeout).until(
             EC.visibility_of_element_located(by_locators)
         )
@@ -108,7 +100,6 @@ class BasePage:
         WebDriverWait(self.driver, self.timeout).until(url_changes(current_page))
 
     def page_is_loading(self):
-
         page_status = self.driver.execute_script("return document.readyState")
         if page_status == "complete":
             return True
@@ -123,7 +114,6 @@ class BasePage:
         web_element = self.get_element(by_locator=by_locators)
 
         while text_to_verifying != web_element.text:
-            wait()
             self.driver.refresh()
             web_element = self.get_element(by_locator=by_locators)
             end_time = time.time().__int__()
@@ -141,7 +131,6 @@ class BasePage:
     ):
         start_time = time.time().__int__()
         while text_to_verifying not in self.driver.page_source:
-            wait()
             self.driver.refresh()
             end_time = time.time().__int__()
             time_to_refresh = end_time - start_time
@@ -158,21 +147,18 @@ class BasePage:
         return bool(element)
 
     def element_is_visible(self, by_locator: tuple) -> bool:
-
         element = WebDriverWait(self.driver, self.timeout).until(
             EC.visibility_of_element_located(by_locator)
         )
         return bool(element)
 
     def element_is_not_visible(self, by_locator: tuple) -> bool:
-
         element = WebDriverWait(self.driver, self.timeout).until(
             EC.invisibility_of_element_located(by_locator)
         )
         return bool(element)
 
     def get_element(self, by_locator: tuple):
-
         element = WebDriverWait(self.driver, self.timeout).until(
             EC.visibility_of_element_located(by_locator)
         )
@@ -188,7 +174,6 @@ class BasePage:
             return False
 
     def get_element_text(self, by_locator: tuple):
-
         element = WebDriverWait(self.driver, self.timeout).until(
             EC.visibility_of_element_located(by_locator)
         )
@@ -216,7 +201,6 @@ class BasePage:
         return value
 
     def hover_to(self, by_locator: tuple) -> ActionChains:
-
         element = WebDriverWait(self.driver, self.timeout).until(
             EC.element_to_be_clickable(by_locator)
         )
@@ -230,7 +214,6 @@ class BasePage:
         return ActionChains(self.driver).move_to_element(element).click().perform()
 
     def choose(self, drop_down_select: tuple, name: str):
-
         drop_down = WebDriverWait(self, self.timeout).until(
             EC.visibility_of_element_located(drop_down_select)
         )
@@ -241,27 +224,22 @@ class BasePage:
         return element.text
 
     def quit(self):
-
         self.driver.close()
         self.driver.quit()
         del driver
 
     def visit(self, location: str):
-
         url = self.driver.current_url + location
         return self.driver.get(url)
 
     def open_new_tab_and_switch(self):
-
         tab = self.driver.execute_script("window.open('');")
         return self.driver.switch_to.window(tab[1])
 
     def get_current_url(self):
-
         return self.driver.current_url
 
     def do_screenshot(self, name: str) -> str:
-
         while not self.page_is_loading():
             continue
         original_size = self.driver.get_window_size()
@@ -276,7 +254,6 @@ class BasePage:
         test_reports_path = get_path_from_directory_name(directory_name=test_reports_name)
 
         if not test_reports_path:
-
             tests_path = change_win_sep(
                 path=get_path_from_directory_name(directory_name=constant.TESTS)
             )
@@ -325,7 +302,8 @@ class BasePage:
 
     def get_console_logs(self, logs: dict) -> dict:
         if self.driver.name == "chrome":
-            wait()
+            while not self.page_is_loading():
+                continue
             console_logs = self.driver.get_log("browser")
             messages = {
                 el["timestamp"]: {"message": el["message"], "url": self.driver.current_url, }

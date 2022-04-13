@@ -7,17 +7,18 @@ from utils.paths_builder import logs_file_path
 class Logger:
     _logger = None
 
-    @staticmethod
-    def get_logger():
-        if Logger._logger is None:
-            Logger()
-        return Logger._logger
-
+  
     def __init__(self):
         if Logger._logger is not None:
             raise Exception("Singleton class - single instance only!")
         else:
             self.setup_logger("sms_logger")
+            
+     @staticmethod
+    def get_logger():
+        if Logger._logger is None:
+            Logger()
+        return Logger._logger
 
     @staticmethod
     def refresh_log_handlers(logger):

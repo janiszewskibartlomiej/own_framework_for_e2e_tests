@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test Report for {{test["id"]}}</title>
+    </head>
+<body>
+<div>
+    <img src="logo.png">
+    <h1 style="margin-top: 20%; text-transform : uppercase; font-style: italic;">
+        {{test["product"]}} {{test["version"]}}
+    </h1>
+    <h1 class="subtitle">
+        tst-{{test["id"]}} - software test script for {{test["storyName"]}}<br><br>
+        {{test["title"]}}
+    </h1>
+    <h4>
+        {{testdate}}
+    </h4>
+    <div class="breaker"></div>
+    <h1 class="toc-title" align="center">
+        Table of content
+    </h1>
+        <ol class="toc">
+            <li><a href="#approval" class="toctext"></a> <a href="#approval" class="tocpagenr"> </a></li>
+            <li><a href="#scope" class="toctext"></a> <a href="#scope" class="tocpagenr"> </a></li>
+            <li><a href="#components" class="toctext"></a> <a href="#components" class="tocpagenr"> </a></li>
+            <li><a href="#exclusions" class="toctext"></a> <a href="#exclusions" class="tocpagenr"> </a></li>
+            <li><a href="#defects" class="toctext"></a> <a href="#defects" class="tocpagenr"> </a></li>
+            <li><a href="#roles" class="toctext"></a> <a href="#roles" class="tocpagenr"> </a></li>
+            <li><a href="#acceptance-criteria" class="toctext"></a> <a href="#acceptance-criteria"
+                                                                       class="tocpagenr"> </a></li>
+            <li><a href="#details" class="toctext"></a> <a href="#details" class="tocpagenr"> </a></li>
+            <li><a href="#steps" class="toctext"></a> <a href="#steps" class="tocpagenr"> </a></li>
+            <li><a href="#screenshots" class="toctext"></a> <a href="#screenshots" class="tocpagenr"> </a></li>
+            <li><a href="#results-log" class="toctext"></a> <a href="#results-log" class="tocpagenr"> </a></li>
+            <li><a href="#results" class="toctext"></a> <a href="#results" class="tocpagenr"> </a></li>
+            <li><a href="#results-review" class="toctext"></a> <a href="#results-review" class="tocpagenr"> </a></li>
+        </ol>
+    <div class="breaker"></div>
+    <div class="content-container">
+    <h2 id="approval">
+        Approval to Execute
+    </h2>
+    <h3>
+        Revision History
+    </h3>
+    <table width="50%" align="center" cellspacing="0">
+        <thead>
+        <th width="15%">Version</th>
+        <th width="35%">Description</th>
+        <th width="25%">Author</th>
+        <th width="25%">Date</th>
+        </thead>
+        <tbody>
+        {% for version in test["revisionHistory"] %}
+        <tr>
+            <td>{{version["version"]}}</td>
+            <td>{{version["description"]}}</td>
+            <td>{{version["author"]}}</td>
+            <td>{{version["date"]}}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <p align=”justify”>
+        {{test["approvalText"]}}
+    </p>
+    <p><b>Director, Quality</b></p>
+    <table class="logs-table" align="center" cellspacing="0">
+        <tbody>
+        <tr>
+        <td width="50%" class="rb">Name:</td>
+        <td width="50%" class="lb">Signature:</td>
+        </tr>
+        <tr>
+        <td width="50%" class="rb">Title: </td>
+        <td width="50%" class="lb"></td>
+        </tr>
+        <tr>
+        <td width="50%" class="rb">Date: </td>
+        <td width="50%" class="lb"></td>
+        </tr>
+        </tbody>
+    </table>
+    <br>
+    <p><b>CFO/COO</b></p>
+    <table class="logs-table" align="center" cellspacing="0">
+        <tbody>
+        <tr>
+        <td width="50%" class="rb">Name:</td>
+        <td width="50%" class="lb">Signature:</td>
+        </tr>
+        <tr>
+        <td width="50%" class="rb">Title: </td>
+        <td width="50%" class="lb"></td>
+        </tr>
+        <tr>
+        <td width="50%" class="rb">Date: </td>
+        <td width="50%" class="lb"></td>
+        </tr>
+        </tbody>
+    </table>
+    <br>
+
+    <h2 id="scope">
+        Scope
+    </h2>
+    <p align=”justify”>
+        {{test["scope"]}}
+    </p>
+        <h2 id="components">
+        Components – Test Items
+    </h2>
+    <p align=”justify”>
+        {{test["testItems"]["description"]}}
+    </p>
+    <ul>
+        {% for item in test["testItems"]["items"] %}
+        <li>
+            {{item["name"]}}<br/> <a href="{{item['url']}}">{{item['url']}}</a>
+        </li>
+        {% endfor %}
+    </ul>
+        <h2 id="exclusions">
+        Exclusions
+    </h2>
+    <p align=”justify”>
+        {{test["exclusions"]["description"]}}
+    </p>
+    <ul>
+        {% for item in test["exclusions"]["items"] %}
+        <li>
+            {{item["name"]}} <a href="{{item['url']}}">{{item['url']}}</a>
+        </li>
+        {% endfor %}
+    </ul>
+        <h2 id="defects">
+        Defects
+    </h2>
+    <p align=”justify”>
+        {{test["defects"]}}
+    </p>
+    <h2 id="roles">
+        Roles and Responsibilities
+    </h2 >
+    {% for role in test["roles"] %}
+    <h3>
+        {{role["name"]}}:
+    </h3>
+    <ul>
+        {% for resp in role["responsibilities"] %}
+        <li>
+            {{resp}}
+        </li>
+        {% endfor %}
+    </ul>
+    {% endfor %}
+
+    <h2 id="acceptance-criteria">
+        Test Acceptance Criteria
+    </h2>
+    <p align=”justify”>
+        {{test["testAcceptanceCriteria"]}}
+    </p>
+    <h2 id="details">
+        Test Case Details
+    </h2>
+    <h3>
+        Pre-Requisites
+    </h3>
+    <p align=”justify”>
+        {{test["testCaseDetails"]["preRequisites"]["description"]}}
+    </p>
+    <ul>
+        {% for point in test["testCaseDetails"]["preRequisites"]["items"] %}
+        <li>
+            {{point}}
+        </li>
+        {% endfor %}
+    </ul>
+    <h3>
+        Preparation
+    </h3>
+    <p align=”justify”>
+        {{test["testCaseDetails"]["preparation"]["description"]}}
+    </p>
+    <ul>
+        {% for point in test["testCaseDetails"]["preparation"]["items"] %}
+        <li>
+            {{point["description"]}}
+            <ul>
+                {% for subitem in point["subItems"] %}
+                <li>
+                    {{subitem}}
+                </li>
+                {% endfor %}
+            </ul>
+        </li>
+        {% endfor %}
+    </ul>
+    <p align=”justify”>
+        {{test["testCaseDetails"]["materials"]["description"]}}
+    </p>
+    <ul>
+        {% for point in test["testCaseDetails"]["materials"]["items"] %}
+        <li>
+            {{point}}
+        </li>
+        {% endfor %}
+    </ul>
+    <p align=”justify”>
+        {{test["testCaseDetails"]["materials"]["footer"]}}
+    </p>
+    <h3>
+        Testing
+    </h3>
+    <p align=”justify”>
+        {{test["testCaseDetails"]["testing"]["description"]}}
+    </p>
+    <h2 id="steps">
+        Test Steps
+    </h2>
+    <table class="table-steps" align="center" cellspacing="0">
+        <colgroup>
+        <col style="width:8%" />
+        <col style="width:7%" />
+        <col style="width:25%" />
+        <col style="width:25%" />
+        <col style="width:12%" />
+        <col style="width:23%" />
+    </colgroup>
+        <thead>
+        <th>Test Steps</th>
+        <th>SRS#</th>
+        <th>Test Procedure</th>
+        <th>Expected Results</th>
+        <th>Actual Results </th>
+        <th>Evidence </th>
+        </thead>
+        <tbody>
+        {% for step in test["steps"] %}
+        <tr>
+            <td>{{loop.index}}.</td>
+            <td>{{step["srs"]}}</td>
+            <td>{{step["description"]}}</td>
+            <td>{{step["expected"]}}</td>
+            <td>{{step["actual"]}}</td>
+            <td>{% if step['screenshot']|length > 1 %}<a href="#ss-{{loop.index}}"> <img src="{{step['screenshot']}}" style="width: 90%">{% endif %}</a></td>
+            <!--<td>{{step["message"]}}</td> -->
+        </tr>
+        {% endfor %}
+        <tr>
+            <td colspan="6" class="tf">
+                End of test
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <h2 id="screenshots">
+        Screenshots
+    </h2>
+    {% for step in test["steps"] %}
+    {% if step['screenshot']|length > 1 %}
+    <p><b>Test step {{loop.index}}:</b> {{step["description"]}} :</p>
+    <img src="{{step['screenshot']}}" style="width: 90%" id="ss-{{loop.index}}">
+    {% endif %}
+    {% endfor %}
+    <div class="breaker"></div>
+    <div class="empty-page">
+        <p>THIS PAGE INTENTIONALLY LEFT BLANK</p>
+    </div>
+    <div class="breaker"></div>
+    <h2 id="results-log">
+        Test Results Log
+    </h2>
+    <p>
+        <i><p style="color:#0000FF">In this section, record any deviations from expected results or additional testing information.Add additional
+        rows as needed. If no deviations are noted, check the checkbox.<br></p></i>
+        Record tester information at the end of this log.
+    </p>
+    <p>
+        □ No deviations noted<br>
+    </p>
+    <table class="logs-table" align="center" cellspacing="0">
+        <thead>
+        <th width="20%">Step</th>
+        <th width="40%">Deviation or Notation</th>
+        <th width="40%">Review Notes</th>
+        </thead>
+        <tbody>
+        {% for n in range(7) %}
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <p>Tester Information<br><br>Name:___________ Date: ___________ Total testing time:___________<br><br><br>Signature:
+        ___________
+    </p>
+    <div class="breaker"></div>
+    <h2 id="results">
+        Results
+    </h2>
+    <table class="logs-table" align="center" cellspacing="0">
+        <tbody>
+        <tr>
+            <td width="50%">Total Number of Test Cases</td>
+            <td width="50%"></td>
+        </tr>
+        <tr>
+            <td width="50%">Number of Passed Cases</td>
+            <td width="50%"></td>
+        </tr>
+        <tr>
+            <td width="50%">Number of Failed Cases</td>
+            <td width="50%"></td>
+        </tr>
+        <tr>
+            <td width="50%">Test Cases not Executed (provide justification)</td>
+            <td width="50%"></td>
+        </tr>
+        <tr>
+            <td width="50%">Final Status</td>
+            <td width="50%"></td>
+        </tr>
+        </tbody>
+    </table>
+    <h2 id="results-review">
+        Review of Results
+    </h2>
+    <p>
+        Completion of the following table signifies the review and approval of the results of this test. Two reviews are
+        required for all tests.
+    </p>
+    <p><b>Reviewer 1</b></p>
+    <table class="logs-table" align="center" cellspacing="0">
+        <tbody>
+        <tr>
+            <td width="50%" class="rb">Name:</td>
+            <td width="50%" class="lb">Signature:</td>
+        </tr>
+        <tr>
+            <td width="50%" class="rb">Title:</td>
+            <td width="50%" class="lb"></td>
+        </tr>
+        <tr>
+            <td width="50%" class="rb">Date:</td>
+            <td width="50%" class="lb"></td>
+        </tr>
+        </tbody>
+    </table>
+    <br><br><br><br>
+    <p><b>Reviewer 2</b></p>
+    <table class="logs-table" align="center" cellspacing="0">
+        <tbody>
+        <tr>
+            <td width="50%" class="rb">Name:</td>
+            <td width="50%" class="lb">Signature:</td>
+        </tr>
+        <tr>
+            <td width="50%" class="rb">Title:</td>
+            <td width="50%" class="lb"></td>
+        </tr>
+        <tr>
+            <td width="50%" class="rb">Date:</td>
+            <td width="50%" class="lb"></td>
+        </tr>
+        </tbody>
+    </table>
+        </div>
+</div>
+</body>
+</html>

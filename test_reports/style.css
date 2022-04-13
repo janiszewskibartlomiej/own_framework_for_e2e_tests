@@ -1,0 +1,153 @@
+    @page {
+    @bottom-right {
+        font-family: Helvetica;
+        content: counter(page) " of " counter(pages);
+        font-size: 10pt;
+    }
+    @bottom-center {
+        content: "Copyright 2022 ........., Inc., CONFIDENTIAL";
+        font-family: Helvetica;
+        font-size: 10pt;
+    }
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+    th{
+        border: 0.5px solid #000000;
+        background-color: #e6e6e6;
+        font-size: 8pt;
+        min-height: 30pt;
+        padding: 5pt;
+        font-weight: bold;
+    }
+
+    td {
+        border: 0.5px solid #000000;
+        font-size: 10pt;
+        padding: 5pt;
+    }
+
+    tfoot {
+        background-color: #e6e6e6;
+        font-size: 11pt;
+        font-weight: bold;
+    }
+
+    .tf {
+        background-color: #e6e6e6;
+        font-size: 11pt;
+        font-weight: bold;
+        text-align: center;
+    }
+    .content-container{
+        width: 100%;
+        margin: auto;
+    }
+    .table-steps {
+        width: 100%;
+        border-spacing: 0;
+        table-layout: fixed;
+        overflow-wrap: break-word;
+    }
+
+    .breaker {
+        page-break-before: always;
+    }
+
+    .logs-table {
+        width: 100%;
+    }
+    table{
+        border-spacing: 0;
+    }
+
+    body {
+        font-family: Helvetica;
+        counter-reset: section subsection;
+    }
+
+    h1 {
+        font-size: 24pt;
+    }
+
+    a {
+        text-decoration: none;
+        color: #000000 !important;
+    }
+
+    p {
+        text-align: justify
+    }
+
+    .subtitle {
+        font-size: 12pt;
+        text-transform: uppercase !important;
+    }
+
+    .toc-title {
+        font-size: 14pt !important;
+        text-align: center;
+    }
+
+    .empty-page {
+        margin-top: 20%;
+        text-align: center;
+        width: 80%;
+        margin-left: 25%;
+    }
+
+    .rb {
+        border-right: none !important;
+    }
+
+    .lb {
+        border-left: none !important;
+    }
+
+    h4 {
+        font-size: 12pt;
+        font-weight: normal;
+    }
+
+    h2 {
+        string-set: chapterstring content();
+        counter-reset: subsection;
+        font-size: 14pt;
+    }
+
+    h2:before {
+        content: counter(section)".";
+        counter-increment: section;
+
+    }
+    /*h3:before {*/
+    /*    content: counter(section)"."counter(subsection);*/
+    /*    counter-increment: subsection;*/
+    /*}*/
+
+
+    ol.toc li {
+
+ font-size: 13pt !important;
+    }
+.toctext{
+color: #000000;
+margin-top: 2pt;
+ font-size: 13pt !important;
+}
+.tocpagenr{
+color: #000000;
+ font-size: 13pt !important;
+}
+.toctext::before{
+ content: target-text(attr(href));
+}
+.tocpagenr {
+ float:right;
+}
+.tocpagenr::before{
+content: ". . . . . ."
+}
+.tocpagenr::after {
+ content: target-counter(attr(href), page);
+}

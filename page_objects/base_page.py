@@ -32,6 +32,7 @@ class BasePage:
         self.driver = driver
         self.timeout = 20
         self.short_timeout = 1
+        self.RE = RePatterns()
 
     def click_on_and_wait_for_a_new_page(self, by_locator: tuple):
         old_page = self.driver.find_element_by_tag_name("html")
@@ -179,11 +180,18 @@ class BasePage:
         )
         return element.text
 
-    def get_all_elements(self, by_locator: tuple) -> list:
-        elements = WebDriverWait(self.driver, self.timeout).until(
-            EC.presence_of_all_elements_located(by_locator)
-        )
-        return elements
+    def get_all_elements(self, by_locator: tuple[str, str]) -> list[WebElement]:
+        while not self.page_is_loading():
+            wait(1)
+            continue
+        try:
+            elements = WebDriverWait(self.driver, self.timeout).until(
+                EC.presence_of_all_elements_located(by_locator)
+            )
+            return elements
+        except TimeoutException:
+            logger.debug('[NO RECORDS AVAILABLE ON THE PAGE]')
+            return []
 
     def is_disappeared(self, by_locator: tuple) -> bool:
         result = WebDriverWait(self.driver, self.timeout).until(
@@ -222,6 +230,24 @@ class BasePage:
     def get_visible_text_in_select_input(self, by_locator) -> str:
         element = Select(self.get_element(by_locator)).first_selected_option
         return element.text
+
+        def element_inside_element_is_visible(self, web_element: WebElement, locator: tuple[str, str]) -> bool:
+        try:
+            element = WebDriverWait(self.driver, self.short_timeout).until(
+                EC.visibility_of(web_element.find_element(*locator))
+            )
+            return bool(element)
+        except (NoSuchElementException, StaleElementReferenceException, TimeoutException, ReadTimeoutError):
+            return False
+
+    def hover_to_and_click_by_js(self, web_element: WebElement) -> None:
+        self.driver.execute_script(
+            "var clickEvent = new MouseEvent('click', { \
+            'view': window, \
+            'bubbles': true, \
+            'cancelable': false \
+            }); \
+            arguments[0].dispatchEvent(clickEvent);", web_element)
 
     def quit(self):
         self.driver.close()
